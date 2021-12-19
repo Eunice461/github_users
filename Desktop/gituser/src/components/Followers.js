@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 
 const Followers = () => {
-  const {followers} = useContext(GithubContext);
+  const { followers } = useContext(GithubContext);
 
   return <Wrapper>
     <div className='followers'>
