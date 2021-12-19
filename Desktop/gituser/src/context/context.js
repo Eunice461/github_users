@@ -12,8 +12,11 @@ const GithubContext = React.createContext();
 // provider and consumer - GitHubContext.provider
 
 const GithubProvide = ({children}) => {
+    const [githubUser, setGithubUser] = useState(mockUser);
+    const [repos, setRepos] = useState(mockRepos);
+    const [followers, setFollowers] = useState(mockFollowers);
     return ( <GithubContext.Provider value={
-        "hello"
+       {githubUser, repos, followers}
     }>{children}</GithubContext.Provider>
     );
 };
