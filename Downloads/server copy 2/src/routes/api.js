@@ -1,0 +1,33 @@
+const express = require('express')
+
+const authRouter = require('./auth/auth.router')
+const verifyEmail = require('./verifyEmail/emailVerifyRoute')
+const tokenRouter = require('./token/token.router')
+const auctionRouter = require('./auction/auction.router')
+const orderRouter = require('./order/order.router')
+const userRouter = require('./user/user.router')
+const cartRouter = require('./cart/cart.router')
+const bidRouter = require('./bid/bid.route')
+const colorRouter = require('./colors/colors.router')
+const replicaRouter = require('./replicas/replicas.router')
+const tokenPriceRouter = require('./tokenPrice/tokenPrice.router')
+const replicaPriceRouter = require('./replicaPrice/replicaPrice.router')
+const proposeRouter = require('./propose/propose.route')
+
+const api = express.Router()
+
+api.use('/',verifyEmail )
+api.use('/', authRouter)
+api.use('/users', userRouter)
+api.use('/token', tokenRouter)
+api.use('/auction', auctionRouter)
+api.use('/order', orderRouter)
+api.use('/cart', cartRouter)
+api.use('/bid', bidRouter)
+api.use('/colors', colorRouter)
+api.use('/replica', replicaRouter)
+api.use('/tokenPrice', tokenPriceRouter)
+api.use('/replicaPrice', replicaPriceRouter)
+api.use('/propose', proposeRouter)
+
+module.exports = api;
