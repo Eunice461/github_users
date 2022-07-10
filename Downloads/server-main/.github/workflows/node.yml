@@ -1,0 +1,32 @@
+name: NFT PROJECT CI
+on:
+  push:
+    branches: [ master ]
+    pull_request:
+      branches: [ master ]
+jobs: 
+  build:
+    env:
+      CI: true
+      MONGO_URL: mongodb://localhost/nft-api
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+        mongodb-version: ['4.4']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js version ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Use MongoDB from Github actions
+        uses: supercharge/mongodb-github-action@1.6.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+      - name: Setup EMQ
+        uses: nnhy/redis-github-action@v1.0
+     
+
+      - run: npm install
+      # - run: npm test
