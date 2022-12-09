@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { assets } from '../../Constant'
 import { MoveBackArrow } from '../Button/Button'
@@ -15,11 +15,13 @@ const TopMeun = ({text, imgUrl}) => {
             handlePress={() => navigation.goBack()}
         />
         <Text style={TopMeunStyles.topMenuText1}>{text}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("OrderPage")}>
             <Image
             source={imgUrl}
             resizeMode="contain"
             style={TopMeunStyles.topMenuImage1}
             />
+            </TouchableOpacity>
       </View>
     </View>
   )

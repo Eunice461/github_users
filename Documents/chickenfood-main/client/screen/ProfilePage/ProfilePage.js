@@ -1,12 +1,14 @@
-import { View, Text, SafeAreaView, TextInput, Image } from 'react-native'
+import { View, Text, SafeAreaView, TextInput, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import MainMenu from '../../Component/MainMenu/MainMenu'
 import profilePageStyles from './Styles.profilepage'
 import { assets, globalColor, globalFontsSize } from '../../Constant'
 import { Button } from '../../Component/Button/Button'
 import FocusedStatusBar from '../../Component/FocusedStatusBar/FocusedStatusbar'
+import { useNavigation } from '@react-navigation/core'
 
 const ProfilePage = () => {
+    const navigation = useNavigation()
   return (
     <SafeAreaView style={profilePageStyles.profilePageContainer}>
         <FocusedStatusBar 
@@ -18,11 +20,13 @@ const ProfilePage = () => {
         <View style={profilePageStyles.profilePageView1}>
         <View style={profilePageStyles.profilePageView2}>
             <Text style={profilePageStyles.profilePageText1}>Profile</Text>
-            <Image 
+            <TouchableOpacity onPress={() => navigation.navigate("OrderPage")}>
+            <Image
             source={assets.cart}
             resizeMode="contain"
             style={profilePageStyles.profilePageImage1}
             />
+            </TouchableOpacity>
         </View>
         <View style={profilePageStyles.profilePageView3}>
             <Image 

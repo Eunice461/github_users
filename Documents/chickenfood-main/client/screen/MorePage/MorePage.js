@@ -22,11 +22,14 @@ const MorePage = () => {
 
        <View style={morePageStyles.morePageView2}>
             <Text style={morePageStyles.morePageText1}>More</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("OrderPage")}>
             <Image
             source={assets.cart}
             resizeMode="contain"
             style={morePageStyles.morePageImage1}
             />
+            </TouchableOpacity>
+            
         </View>
 
 
